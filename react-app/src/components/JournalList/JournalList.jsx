@@ -7,7 +7,7 @@ function JournalList({ items }) {
         return <p>Записей пока нет, добавьте первую</p>;
     }
     const sortItems = (a, b) => {
-        if (a.date < b.date) {
+        if (a.date <= b.date) {
             return 1;
         } else {
             return -1;
@@ -20,7 +20,7 @@ function JournalList({ items }) {
                 <CardButton key={el.id}>
                     <JournalItem
                         title={el.title}
-                        text={el.text}
+                        post={el.post}
                         date={el.date}
                     />
                 </CardButton>

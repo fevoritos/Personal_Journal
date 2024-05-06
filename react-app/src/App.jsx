@@ -11,13 +11,13 @@ const INITIAL_DATA = [
     // {
     //     id: 1,
     //     title: "Подготовка к обновлению курсов",
-    //     text: "Горные походы открывают удивительные природные ландшафты",
+    //     post: "Горные походы открывают удивительные природные ландшафты",
     //     date: new Date(),
     // },
     // {
     //     id: 2,
     //     title: "Поход в горы",
-    //     text: "Думал, что очень много времени",
+    //     post: "Думал, что очень много времени",
     //     date: new Date(),
     // },
 ];
@@ -29,13 +29,10 @@ function App() {
         setItems((oldItems) => [
             ...oldItems,
             {
-                text: item.text,
+                post: item.post,
                 title: item.title,
                 date: new Date(item.date),
-                id:
-                    oldItems.length > 0
-                        ? Math.max(...oldItems.map((i) => i.id)) + 1
-                        : 1,
+                id: oldItems.length > 0 ? Math.max(...oldItems.map((i) => i.id)) + 1: 1,
             },
         ]);
     };
