@@ -4,26 +4,43 @@ import JournalList from "./components/JournalList/JournalList";
 import Body from "./layouts/Body/Body";
 import LeftPanel from "./layouts/LeftPanel/LeftPanel";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JournalForm from "./components/JournalForm/JournalForm";
 
-const INITIAL_DATA = [
-    // {
-    //     id: 1,
-    //     title: "Подготовка к обновлению курсов",
-    //     post: "Горные походы открывают удивительные природные ландшафты",
-    //     date: new Date(),
-    // },
-    // {
-    //     id: 2,
-    //     title: "Поход в горы",
-    //     post: "Думал, что очень много времени",
-    //     date: new Date(),
-    // },
-];
+// const INITIAL_DATA = [
+// {
+//     "id": 1,
+//     "title": "Подготовка к обновлению курсов",
+//     "post": "Горные походы открывают удивительные природные ландшафты",
+//     "date": "2024/06/05"
+// },
+// {
+//     "id": 2,
+//     "title": "Поход в горы",
+//     "post": "Думал, что очень много времени",
+//     "date": "2024/06/05"
+// },
+// ];
 
 function App() {
-    const [items, setItems] = useState(INITIAL_DATA);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('data'));
+        if (data) {
+            setItems(data.map(item => ({
+                ...item,
+                date: new Date(item.date)
+            })));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (items.length){
+            localStorage.setItem('data', JSON.stringify(items));
+        }
+    }, [items]);
+    
 
     const addItem = (item) => {
         setItems((oldItems) => [
