@@ -26,14 +26,16 @@ function App() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("data"));
-        if (data) {
-            setItems(
-                data.map((item) => ({
-                    ...item,
-                    date: new Date(item.date),
-                }))
-            );
+        if (localStorage.getItem("data") === null) {
+            const data = JSON.parse(localStorage.getItem("data"));
+            if (data) {
+                setItems(
+                    data.map((item) => ({
+                        ...item,
+                        date: new Date(item.date),
+                    }))
+                );
+            }
         }
     }, []);
 
