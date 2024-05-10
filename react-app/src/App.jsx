@@ -4,7 +4,6 @@ import JournalList from "./components/JournalList/JournalList";
 import Body from "./layouts/Body/Body";
 import LeftPanel from "./layouts/LeftPanel/LeftPanel";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
-import { useEffect, useState } from "react";
 import JournalForm from "./components/JournalForm/JournalForm";
 import { useLocalStorage } from "./hooks/use-localstorage.hook";
 
@@ -43,7 +42,7 @@ function App() {
                 post: item.post,
                 title: item.title,
                 date: new Date(item.date),
-                id: item.length > 0 ? Math.max(...item.map((i) => i.id)) + 1 : 1,
+                id: items.length > 0 ? Math.max(...items.map((i) => i.id)) + 1 : 1,
             },
         ]);
     };
