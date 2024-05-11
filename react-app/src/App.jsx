@@ -6,6 +6,7 @@ import LeftPanel from "./layouts/LeftPanel/LeftPanel";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
 import JournalForm from "./components/JournalForm/JournalForm";
 import { useLocalStorage } from "./hooks/use-localstorage.hook";
+import { UserContextProvider } from "./context/user.context";
 
 // const INITIAL_DATA = [
 // {
@@ -48,16 +49,18 @@ function App() {
     };
 
     return (
-        <div className="app">
-            <LeftPanel>
-                <Header />
-                <JournalAddButton />
-                <JournalList items={mapItems(items)} />
-            </LeftPanel>
-            <Body>
-                <JournalForm onSubmit={addItem} />
-            </Body>
-        </div>
+        <UserContextProvider>
+            <div className="app">
+                <LeftPanel>
+                    <Header />
+                    <JournalAddButton />
+                    <JournalList items={mapItems(items)} />
+                </LeftPanel>
+                <Body>
+                    <JournalForm onSubmit={addItem} />
+                </Body>
+            </div>
+        </UserContextProvider>
     );
 }
 
