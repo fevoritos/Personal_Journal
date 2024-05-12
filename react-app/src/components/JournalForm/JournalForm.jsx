@@ -109,7 +109,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
                 id=""
                 cols="30"
                 rows="10"
-                className={cn(styles["input"], {
+                className={cn(styles["input"], styles["textarea"], {
                     [styles["invalid"]]: !isValid.post,
                 })}
             ></textarea>

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/user.context";
 
 function JournalList({ items, setItem }) {
-    const { userId } = useContext(UserContext);
+    //const { userId } = useContext(UserContext);
 
     if (items.length === 0) {
         return <p>Записей пока нет, добавьте первую</p>;
@@ -21,7 +21,7 @@ function JournalList({ items, setItem }) {
     return (
         <>
             {items
-                .filter((el) => el.userId === userId)
+                //.filter((el) => el.userId === userId)
                 .sort(sortItems)
                 .map((el) => (
                     <CardButton key={el.id} onClick={() => setItem(el)}>

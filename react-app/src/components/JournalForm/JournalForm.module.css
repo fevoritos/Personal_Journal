@@ -48,3 +48,8 @@
     background: rgb(255, 255, 255, 0.05);
     border-radius: 50%;
 }
+
+.textarea {
+    resize: none;
+    height: 400px;
+}

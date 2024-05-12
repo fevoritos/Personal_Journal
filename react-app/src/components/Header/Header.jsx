@@ -5,7 +5,6 @@ function Header() {
     return (
         <>
             <img className={styles.logo} src="/logo.svg" alt="Логотип журнала" />
-            <SelectUser />
         </>
     );
 }
