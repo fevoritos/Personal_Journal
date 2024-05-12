@@ -8,6 +8,9 @@
     text-align: start;
     display: block;
     width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card-button:hover {
