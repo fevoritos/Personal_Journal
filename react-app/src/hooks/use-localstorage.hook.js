@@ -4,6 +4,12 @@ export function useLocalStorage(key) {
     const [data, setData] = useState();
 
     useEffect(() => {
+        if (localStorage.getItem(key) === null) {
+            localStorage.setItem(key, "[]");
+        }
+    }, []);
+
+    useEffect(() => {
         //if (localStorage.getItem(key) === null) {
         const res = JSON.parse(localStorage.getItem(key));
         if (res) {
